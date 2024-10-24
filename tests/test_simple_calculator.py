@@ -2,82 +2,86 @@
 
 import pytest
 import math
-from calculator.calculator import (
-    squareNums,
-    triNums,
-    lazyCaterer,
-    magicSquares,
-    cubeNums,
-    circNum,
-    surfArea,
-)
+import sys
+sys.path.insert(0, 'calculator\calculator.py')
+import calculator as cl
 
 # Test for squareNums function
 @pytest.mark.parametrize("n, expected", [
-    (2, 4),
-    (3, 9),
-    (-4, 16),
+    (5, 25),
+    (6, 36),
+    (-9, 81),
 ])
 def test_squareNums(n, expected):
     """Test squareNums function with various integers"""
-    assert squareNums(n) == expected
+    assert cl.squareNums(n) == expected
 
 # Test for cubeNums function
 @pytest.mark.parametrize("n, expected", [
-    (2, 8),
-    (3, 27),
-    (-4, -64),
+    (4, 64),
+    (-1, -1),
+    (5, 125),
 ])
 def test_cubeNums(n, expected):
     """Test cubeNums function with various integers"""
-    assert cubeNums(n) == expected
+    assert cl.cubeNums(n) == expected
 
 # Test for triNums function
 @pytest.mark.parametrize("n, expected", [
-    (1, 1),
-    (3, 6),
     (5, 15),
+    (3, 6),
+    (4, 10),
 ])
 def test_triNums(n, expected):
     """Test triNums function with various integers"""
-    assert triNums(n) == expected
+    assert cl.triNums(n) == expected
 
 # Test for lazyCaterer function
 @pytest.mark.parametrize("n, expected", [
     (1, 2),
-    (2, 4),
+    (-2, 2),
     (3, 7),
 ])
 def test_lazyCaterer(n, expected):
     """Test lazyCaterer function with various integers"""
-    assert lazyCaterer(n) == expected
+    assert cl.lazyCaterer(n) == expected
 
 # Test for magicSquares function
 @pytest.mark.parametrize("n, expected", [
+    (1, 1),
+    (2, 5),
     (3, 15),
-    (4, 34),
-    (5, 65),
 ])
 def test_magicSquares(n, expected):
     """Test magicSquares function with various integers"""
-    assert magicSquares(n) == expected
+    assert cl.magicSquares(n) == expected
 
-# Test for circNum function
+# Test for squareRoot function
 @pytest.mark.parametrize("n, expected", [
-    (1, 2 * math.pi * 1),
-    (2, 2 * math.pi * 2),
-    (3, 2 * math.pi * 3),
+    (4, 2),
+    (9, 3),
+    (25, 5),
 ])
-def test_circNum(n, expected):
-    """Test circNum function with various radii"""
-    assert circNum(n) == pytest.approx(expected)
+def test_squareRoot(n, expected):
+    """Test squareRoot function with various integers"""
+    assert cl.squareRoot(n) == expected
 
-# Test for surfArea function
+# Test for polyAngle function
 @pytest.mark.parametrize("n, expected", [
-    (1, 4 * math.pi * 1**2),
-    (2, 4 * math.pi * 2**2),
-    (3, 4 * math.pi * 3**2),
+    (3, 180),
+    (4, 360),
+    (5, 540),
 ])
-def test_surfArea(n, expected):
-    """Test surfArea function with various radii"""
-    assert surfArea(n) == pytest.approx(expected)
+def test_polyAngle(n, expected):
+    """Test polyAngle function with various integers"""
+    assert cl.polyAngle(n) == expected
+
+# Test for circArea function
+@pytest.mark.parametrize("n, expected", [
+    (2, 12.57),
+    (3, 28.27),
+    (4, 50.27),
+])
+def test_circArea(n, expected):
+    """Test circArea function with various integers"""
+    assert cl.circArea(n) == expected

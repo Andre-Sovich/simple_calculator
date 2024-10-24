@@ -5,7 +5,6 @@ def squareNums(n):
     """Calculates the square"""
     return n**2
 
-
 def triNums(n):
     """Calculates the tri number"""
     return (n * (n + 1)) / 2
@@ -19,38 +18,38 @@ def lazyCaterer(n):
 def magicSquares(n):
     """Calculates the magic squares number"""
     return (n * (n**2 + 1)) / 2
-    
 
-def cubeNums(n):
-    """Calculates the cubed number"""
-    return (n*n*n)
-    
+def squareRoot(n):
+    """Calculates the square root of number"""
+    return math.sqrt(n)
 
-def circNum(n):
-    """Calculates the circumfrence of a circle from the provided radius"""
-    return 2*(math.pi)*n
-    
+def polyAngle(n):
+    """Calculates the interior angle of a polygon of a given size"""
+    return (n-2) * 180
 
-def surfArea(n):
-    """Calculates the surface area of a sphere from a given radius"""
-    return 4*(math.pi)*(n*n)
+def circArea(n):
+    """Calculates the area of a circle of a given radius"""
+    return round(math.pi * n**2, 2)
+
+
     
 
 def run_calculator(input_formula, input_num):
     """Calls and returns results for the specified formulas"""
-    calculator = [squareNums, triNums, lazyCaterer, magicSquares]
+    calculator = [squareNums, triNums, lazyCaterer, magicSquares, squareRoot,polyAngle,circArea]
     formula = calculator[input_formula - 1]
     return_result = formula(input_num)
     return return_result
-    
+
+
 
 if __name__ == "__main__":
     print(
-        "Choose which formula to use: 1 for square, 2 for tri, 3 for lazy caterer, 4 for magic squares"
+        "Choose which formula to use: 1 for square, 2 for tri, 3 for lazy caterer, 4 for magic squares, 5 for square root, 6 for polygon angle, and 7 for circle area"
     )
     input_formula = int(input())
     print(
-        "Enter a number to calculate the square, tri, lazy caterer, and magic squares numbers"
+        "Enter a number to calculate the square, tri, lazy caterer, magic squares numbers, square root, polygon angle, or circle area"
     )
     input_num = int(input())
 
